@@ -1,7 +1,9 @@
+{{range .Entries}}
 <tr>
-    <td valign="top"><img src="{{img_path}}" alt="[   ]"></td>
-    <td><a href="{{item_path}}">{{item_name}}</a></td>
-    <td align="right">{{date}}</td>
-    <td align="right">{{size}}</td>
+    <td valign="top"><img src="/icons/none.gif" alt="[   ]"></td>
+    <td><a href="{{.Path}}">{{.Name}}</a></td>
+    <td align="right">{{.LastModified}}</td>
+    <td align="right">{{.Size}}</td>
     <td>&nbsp;</td>
 </tr>
+{{end}}

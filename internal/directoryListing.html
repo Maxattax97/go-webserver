@@ -1,12 +1,13 @@
+{{define "directoryListing.html"}}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <html>
 
 <head>
-    <title>Index of {{directory_path}}</title>
+    <title>Index of {{.Path}}</title>
 </head>
 
 <body>
-    <h1>Index of {{directory_path}}</h1>
+    <h1>Index of {{.Path}}</h1>
     <table>
         <tr>
             <th valign="top"><img src="/icons/blank.gif" alt="[ICO]"></th>
@@ -27,13 +28,23 @@
             <td align="right"> - </td>
             <td>&nbsp;</td>
         </tr>
+        {{range .Entries}}
+        <tr>
+            <td valign="top"><img src="{{.Icon}}" alt="[   ]"></td>
+            <td><a href="{{.Path}}">{{.Name}}</a></td>
+            <td align="right">{{.LastModified}}</td>
+            <td align="right">{{.Size}}</td>
+            <td>&nbsp;</td>
+        </tr>
+        {{end}}
         <tr>
             <th colspan="5">
                 <hr>
             </th>
         </tr>
     </table>
-    <address>{{server_info}}</address>
+    <address>{{.ServerInfo}}</address>
 </body>
 
 </html>
+{{end}}
